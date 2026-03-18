@@ -1,15 +1,15 @@
 #!/bin/bash
 
-# ===============================
+
 # Download SRA data for Assignment 3
 # Dataset: SRP126540
 # 3 omnivore + 3 vegan samples
-# ===============================
+
 
 set -e  # stop on error
 
 # WSL-native data directory (FAST)
-DATA_DIR="$HOME/6110Assignment3"
+DATA_DIR="$HOME/6110Assignment3/data"
 mkdir -p "$DATA_DIR"
 cd "$DATA_DIR"
 
