@@ -3,6 +3,9 @@
 library(dplyr)
 library(readr)
 library(tidyr)
+library(phyloseq)
+library(ggplot2)
+
 
 # Set data directory to bracken output location
 data_dir <- "data/processed/bracken"
@@ -42,3 +45,76 @@ rownames(abundance_mat) <- abundance_mat$name
 abundance_mat$name <- NULL
 
 write.csv(abundance_mat, "data/processed/species_abundance_matrix.csv")
+
+####Create metadata####
+metadata <- data.frame(
+  sample_id = c(
+    "SRR8146935", "SRR8146936", "SRR8146938",
+    "SRR8146951", "SRR8146952", "SRR8146954"
+  ),
+  diet = c(
+    "omnivore", "omnivore", "omnivore",
+    "vegan", "vegan", "vegan"
+  )
+)
+
+rownames(metadata) <- metadata$sample_id
+metadata$sample_id <- NULL
+
+write.csv(metadata, "data/processed/sample_metadata.csv")
+
+# Check metadata to abundance matrix
+all(colnames(abundance_mat) == rownames(metadata))
+
+####Build phyloseq object####
+otu <- otu_table(as.matrix(abundance_mat), taxa_are_rows = TRUE)
+samples <- sample_data(metadata)
+
+ps <- phyloseq(otu, samples)
+
+# Verify
+ps
+
+####Transform to relative abundance####
+ps_rel <- transform_sample_counts(ps, function(x) x / sum(x))
+
+####Melt phyloseq object to long format####
+plot_df <- psmelt(ps_rel)
+
+# Check columns
+colnames(plot_df)
+head(plot_df)
+
+####Plot stacked bar chart####
+# Keep only top 20 most abundant species
+top_taxa <- plot_df %>%
+  group_by(OTU) %>%
+  summarise(mean_abundance = mean(Abundance)) %>%
+  arrange(desc(mean_abundance)) %>%
+  slice(1:20) %>%
+  pull(OTU)
+
+plot_top <- plot_df %>%
+  mutate(Taxon = ifelse(OTU %in% top_taxa, OTU, "Other"))
+
+# Create bar chart
+ggplot(plot_top, aes(x = Sample, y = Abundance, fill = Taxon)) +
+  geom_bar(stat = "identity") +
+  facet_grid(. ~ diet, scales = "free_x", space = "free_x") +
+  labs(
+    title = "Top 20 species by relative abundance",
+    x = "Sample",
+    y = "Relative abundance"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1)
+  )
+
+# Save figure
+ggsave(
+  filename = "results/species_relative_abundance_barplot.png",
+  width = 12,
+  height = 6,
+  dpi = 300
+)
