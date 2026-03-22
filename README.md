@@ -55,7 +55,7 @@ Alpha diversity was assessed using Shannon and Simpson diversity indices (Figure
 
 ### Figure 2. Alpha diversity of gut microbiome samples by diet.
 
-Boxplots showing Shannon (left) and Simpson (right) diversity indices for vegan and omnivore samples. Individual data points represent samples. No statistically significant differences in alpha diversity were observed between dietary groups (Wilcoxon rank-sum test, p = 0.7 for both metrics).
+Boxplots showing Shannon (top) and Simpson (bottom) diversity indices for vegan and omnivore samples. Individual data points represent samples. No statistically significant differences in alpha diversity were observed between dietary groups (Wilcoxon rank-sum test, p = 0.7 for both metrics).
 
 ---
 
