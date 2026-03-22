@@ -85,4 +85,37 @@ Volcano plot showing log fold change (vegan vs. omnivore) versus statistical sig
 
 # Discussion
 
+This study examined differences in gut microbiome composition between vegan and omnivorous individuals using shotgun metagenomic data. While visual differences in taxonomic composition were observed, statistical analyses did not detect significant differences in alpha diversity, beta diversity, or differential abundance between dietary groups. These findings highlight the complexity of diet–microbiome relationships and the influence of inter-individual variability.
+
+The relative abundance analysis demonstrated that certain taxa, including Segatella copri and Faecalibacterium prausnitzii, were prominent across samples. These taxa have been commonly reported in human gut microbiomes and are associated with carbohydrate metabolism and short-chain fatty acid production (De Filippis et al., 2019). However, the dominance of specific taxa varied widely between individuals, reflecting the well-established heterogeneity of the gut microbiome (Lynch & Pedersen, 2016).
+
+Alpha diversity analyses using Shannon and Simpson indices revealed no significant differences between vegan and omnivore groups. Although omnivore samples exhibited greater variability in diversity values, this difference was not statistically significant. Previous studies have reported mixed results regarding the relationship between diet and alpha diversity, with some observing increased diversity in plant-based diets and others finding no consistent pattern (David et al., 2014; Sonnenburg & Bäckhed, 2016). The lack of significant differences in this study may reflect both biological variability and limited statistical power.
+
+Beta diversity analysis indicated partial clustering of samples by diet, suggesting that dietary patterns may influence overall community composition. However, this clustering was not consistent across all samples, and PERMANOVA results were not statistically significant (p = 0.2). Despite the lack of significance, the observed effect size (R² = 0.216) suggests that diet may explain a moderate proportion of variation in microbial composition. This aligns with previous findings that diet contributes to microbiome variation, but is often secondary to individual-specific factors (Lynch & Pedersen, 2016).
+
+Differential abundance analysis using ANCOMBC2 did not identify any taxa that were significantly associated with dietary group after multiple testing correction and sensitivity analysis. While some taxa exhibited nominal differences in abundance, none remained significant after adjustment. This result is consistent with the challenges of detecting robust differential signals in small cohorts, where high inter-individual variability can obscure diet-associated effects.
+
+Several limitations of this study should be considered. Most notably, the small sample size (n = 3 per group) substantially reduces statistical power and limits the ability to detect significant differences. Additionally, microbiome data are inherently compositional and highly variable, further complicating statistical inference. The use of species-level resolution may also introduce noise, as closely related taxa can exhibit subtle abundance differences that are difficult to detect reliably.
+
+Overall, the results suggest that while diet may influence gut microbiome composition, these effects are not readily detectable in small sample sets due to high variability between individuals. These findings are consistent with the broader literature, which emphasizes the need for larger sample sizes and careful statistical analysis to robustly identify diet-associated microbiome patterns. Future studies with increased sample size and additional metadata may provide greater insight into the relationship between diet and microbial community structure.
+
+# References
+
+David, L. A., Maurice, C. F., Carmody, R. N., Gootenberg, D. B., Button, J. E., Wolfe, B. E., Ling, A. V., Devlin, A. S., Varma, Y., Fischbach, M. A., Biddinger, S. B., Dutton, R. J., & Turnbaugh, P. J. (2014). Diet rapidly and reproducibly alters the human gut microbiome. Nature, 505(7484), 559–563. 
+
+De Filippis, F., Pellegrini, N., Vannini, L., Jeffery, I. B., La Storia, A., Laghi, L., Serrazanetti, D. I., Di Cagno, R., Ferrocino, I., Lazzi, C., Turroni, S., Cocolin, L., Brigidi, P., Neviani, E., Gobbetti, M., O’Toole, P. W., & Ercolini, D. (2019). High-level adherence to a Mediterranean diet beneficially impacts the gut microbiota and associated metabolome. Cell Host & Microbe, 25(1), 1–12.
+
+Lin, H., & Peddada, S. D. (2020). Analysis of compositions of microbiomes with bias correction. Nature Communications, 11(1), 3514. 
+
+Lu, J., Breitwieser, F. P., Thielen, P., & Salzberg, S. L. (2017). Bracken: Estimating species abundance in metagenomics data. PeerJ Computer Science, 3, e104. 
+
+Lynch, S. V., & Pedersen, O. (2016). The human intestinal microbiome in health and disease. New England Journal of Medicine, 375(24), 2369–2379. 
+
+McMurdie, P. J., & Holmes, S. (2013). phyloseq: An R package for reproducible interactive analysis and graphics of microbiome census data. PLoS ONE, 8(4), e61217. 
+
+Oksanen, J., et al. (2020). vegan: Community ecology package. R package version 2.5-7.
+
+Sonnenburg, J. L., & Bäckhed, F. (2016). Diet–microbiota interactions as moderators of human metabolism. Nature, 535(7610), 56–64. 
+
+Wood, D. E., Lu, J., & Langmead, B. (2019). Improved metagenomic analysis with Kraken 2. Genome Biology, 20(1), 257. 
 
