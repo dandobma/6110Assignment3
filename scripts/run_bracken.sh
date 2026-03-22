@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# ===============================
 # Bracken abundance estimation
-# ===============================
 
 set -e
 
@@ -14,7 +12,7 @@ OUT_DIR="$HOME/bracken_results"
 mkdir -p "$OUT_DIR"
 
 # Taxonomic level
-LEVEL="S"   # S = species (you can also do G = genus)
+LEVEL="S"   # S = species
 
 # Read length
 READ_LEN=150
